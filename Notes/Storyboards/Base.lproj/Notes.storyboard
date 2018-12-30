@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="42h-8w-i2i">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notes View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NotesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I6B-Kr-4dh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vg0-49-KZt">
+                            <connections>
+                                <segue destination="rGe-eH-Wcf" kind="show" identifier="AddNote" id="dff-QX-0mu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="530" y="123"/>
+        </scene>
+        <!--Add Note View Controller-->
+        <scene sceneID="YIO-3O-Hu6">
+            <objects>
+                <viewController id="rGe-eH-Wcf" customClass="AddNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eZ4-qo-0aa"/>
+                        <viewControllerLayoutGuide type="bottom" id="ubA-zc-Rgf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Azw-ra-Wrg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhB-0s-zNz">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hFT-0V-1L1">
+                                <rect key="frame" x="20" y="122" width="335" height="525"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hFT-0V-1L1" firstAttribute="top" secondItem="KhB-0s-zNz" secondAttribute="bottom" constant="8" id="88K-z1-85o"/>
+                            <constraint firstItem="hFT-0V-1L1" firstAttribute="leading" secondItem="Azw-ra-Wrg" secondAttribute="leading" constant="20" id="GK2-m9-bXC"/>
+                            <constraint firstItem="ubA-zc-Rgf" firstAttribute="top" secondItem="hFT-0V-1L1" secondAttribute="bottom" constant="20" id="OOV-kK-DwU"/>
+                            <constraint firstItem="KhB-0s-zNz" firstAttribute="top" secondItem="eZ4-qo-0aa" secondAttribute="bottom" constant="20" id="Qec-qM-xg0"/>
+                            <constraint firstAttribute="trailing" secondItem="hFT-0V-1L1" secondAttribute="trailing" constant="20" id="adJ-AP-Zwa"/>
+                            <constraint firstAttribute="trailing" secondItem="KhB-0s-zNz" secondAttribute="trailing" constant="20" id="hbO-IY-UPW"/>
+                            <constraint firstItem="KhB-0s-zNz" firstAttribute="leading" secondItem="Azw-ra-Wrg" secondAttribute="leading" constant="20" id="wwp-YG-MuE"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Sw4-sH-RCt"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="3lx-4x-B9V">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="o0d-eq-RtX">
+                            <connections>
+                                <action selector="saveWithSender:" destination="rGe-eH-Wcf" id="xs0-Kk-0hH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="contentsTextView" destination="hFT-0V-1L1" id="Nze-PY-JuM"/>
+                        <outlet property="titleTextField" destination="KhB-0s-zNz" id="h8a-Ia-d3d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="198-aR-Zjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309.5999999999999" y="122.78860569715144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1bM-HM-s7f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="42h-8w-i2i" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S9L-mj-hZ9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9od-0F-WRY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0MQ-rE-Ovg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-235.19999999999999" y="123.23838080959521"/>
+        </scene>
+    </scenes>
+</document>
